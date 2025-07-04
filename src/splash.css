@@ -1,0 +1,42 @@
+/* splash.css */
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #7f00ff, #bf5fff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.splash-content {
+  text-align: center;
+  color: white;
+  animation: fadeIn 1s ease-out;
+}
+
+.emoji {
+  font-size: 100px;
+  animation: bounce 1.5s infinite;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: bold;
+  margin-top: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}

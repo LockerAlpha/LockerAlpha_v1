@@ -1,0 +1,124 @@
+// import React, { useState } from 'react';
+
+// function Body() {
+//   // Upload locker
+//   const [secretCode, setSecretCode] = useState('');
+//   const [message, setMessage] = useState('');
+//   const [file, setFile] = useState(null);
+
+//   // Retrieve locker
+//   const [retrieveCode, setRetrieveCode] = useState('');
+//   const [retrievedMessage, setRetrievedMessage] = useState('');
+//   const [retrievedFile, setRetrievedFile] = useState(null);
+
+//   // SUBMIT to locker (User 1)
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (!secretCode) return alert("Secret code required!");
+
+//     const formData = new FormData();
+//     formData.append('secretCode', secretCode);
+//     formData.append('message', message);
+//     if (file) formData.append('file', file);
+
+//     try {
+//       const response = await fetch('http://localhost:5000/upload', {
+//         method: 'POST',
+//         body: formData,
+//       });
+
+//       const result = await response.json();
+//       if (result.success) {
+//         alert("Message/file saved in locker 🔒");
+//         setSecretCode('');
+//         setMessage('');
+//         setFile(null);
+//       } else {
+//         alert("Error: " + result.error);
+//       }
+//     } catch (err) {
+//       console.error(err);
+//       alert("Failed to connect to server");
+//     }
+//   };
+
+//   // RETRIEVE from locker (User 2)
+//   const handleRetrieve = async () => {
+//     if (!retrieveCode) return alert("Enter secret code to retrieve");
+
+//     try {
+//       const response = await fetch('http://localhost:5000/retrieve', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({ secretCode: retrieveCode }),
+//       });
+
+//       const result = await response.json();
+
+//       if (result.error) {
+//         alert("❌ Locker not found");
+//         setRetrievedMessage('');
+//         setRetrievedFile(null);
+//       } else {
+//         setRetrievedMessage(result.message || 'No message found');
+//         setRetrievedFile(result.file);
+//       }
+//     } catch (err) {
+//       console.error(err);
+//       alert("Could not retrieve from locker.");
+//     }
+//   };
+
+//   return (
+//     <div className="body-container">
+
+//       {/* Upload Section */}
+//       <h2>🔐 Save to Locker</h2>
+//       <div className="form-group">
+//         <label>Secret Code</label>
+//         <input value={secretCode} onChange={(e) => setSecretCode(e.target.value)} />
+//       </div>
+//       <div className="form-group">
+//         <label>Text Message</label>
+//         <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
+//       </div>
+//       <div className="form-group">
+//         <label>Upload File</label>
+//         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+//       </div>
+//       <div className="form-submit">
+//         <button onClick={handleSubmit}>Submit to Locker</button>
+//       </div>
+
+//       <hr style={{ margin: '40px 0' }} />
+
+//       {/* Retrieve Section */}
+//       <h2>🔓 Open Locker</h2>
+//       <div className="form-group">
+//         <label>Enter Secret Code</label>
+//         <input value={retrieveCode} onChange={(e) => setRetrieveCode(e.target.value)} />
+//       </div>
+//       <div className="form-submit">
+//         <button onClick={handleRetrieve}>Retrieve</button>
+//       </div>
+
+//       {/* Display Results */}
+//       {retrievedMessage && (
+//         <div style={{ marginTop: '20px' }}>
+//           <h4>Message from Locker:</h4>
+//           <p>{retrievedMessage}</p>
+//         </div>
+//       )}
+//       {retrievedFile && (
+//         <div style={{ marginTop: '20px' }}>
+//           <h4>File from Locker:</h4>
+//           <a href={retrievedFile.url} target="_blank" rel="noopener noreferrer">
+//             Download {retrievedFile.name}
+//           </a>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Body;//
