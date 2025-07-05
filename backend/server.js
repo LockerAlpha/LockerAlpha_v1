@@ -52,7 +52,7 @@ app.post('/retrieve', (req, res) => {
   res.json({
     message: data.message,
     file: data.filePath ? {
-      url: `http://localhost:${PORT}/download/${secretCode}`, // 👈 Proper download route
+      url: `https://locker-mnlb.onrender.com/download/${secretCode}`, // 👈 Proper download route
       name: data.originalName,
     } : null,
   });
