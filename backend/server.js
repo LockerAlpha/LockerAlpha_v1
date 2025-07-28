@@ -93,7 +93,7 @@ app.post('/retrieve', (req, res) => {
   res.json({
     message,
     files: files && files.length > 0 ? files.map((f, idx) => ({
-      url: `https://locker-mnlb.onrender.com/download/${secretCode}/${idx}`,
+      url: `https://lockeralpha-v1.onrender.com/download/${secretCode}/${idx}`,
       name: f.originalName
     })) : [],
   });
