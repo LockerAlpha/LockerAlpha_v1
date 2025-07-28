@@ -30,7 +30,7 @@ function Body() {
 
     try {
       const xhr = new window.XMLHttpRequest();
-      xhr.open('POST', 'https://locker-mnlb.onrender.com/upload');
+      xhr.open('POST', 'https://lockeralpha-v1.onrender.com/upload');
 
       xhr.upload.onprogress = (event) => {
         if (event.lengthComputable) {
@@ -76,7 +76,7 @@ function Body() {
     if (!retrieveCode) return alert("Enter secret code to retrieve");
 
     try {
-      const response = await fetch('https://locker-mnlb.onrender.com/retrieve', {
+      const response = await fetch('https://lockeralpha-v1.onrender.com/retrieve', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ secretCode: retrieveCode }),
