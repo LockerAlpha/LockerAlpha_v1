@@ -8,7 +8,7 @@ function Contact() {
       <p>
         You can reach us at: <br />
         <a href="mailto:locker0207@proton.me" className="contact-email">
-          locker0207@proton.me
+          LockerAlpha@proton.me
         </a>
       </p>
     </div>
